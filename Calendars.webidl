@@ -11,13 +11,16 @@ interface CalendarManager : EventTarget {
 
 interface Calendar : EventTarget {
   Promise add(CalendarEvent event);
+  Promise getEvents();
   Promise remove(CalendarEvent event);
   Promise update(CalendarEvent event);
 
   attribute DOMString id;
   attribute DOMString color;
   attribute DOMString name;
+  attribute EventHandler oncalendareventadded;
   attribute EventHandler oncalendareventchange;
+  attribute EventHandler oncalendareventremoved;
   attribute boolean visible;  // Whether or not to display calendar's events.
 };
 

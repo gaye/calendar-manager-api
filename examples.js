@@ -42,6 +42,25 @@ calendars
     // ...
   });
 
+// Read calendar events from a calendar.
+calendars
+  .getAll()
+  .then(function(results) {
+    var schoolCalendar = results[0];
+    return schoolCalendar.getEvents();
+  })
+  .then(function(events) {
+    // events is an array of the calendar's events.
+  })
+  .catch(function(error) {
+    // ...
+  });
+
+calendars.oncalendaradded = function(event) {
+  // Calendar that was added...
+  var calendar = event.target;
+};
+
 // Listen for changes to calendars.
 calendars.oncalendarchange = function(event) {
   // Calendar that was changed...
